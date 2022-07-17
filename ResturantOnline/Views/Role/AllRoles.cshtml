@@ -1,0 +1,26 @@
+﻿@model List<IdentityRole>
+@{
+    ViewData["Title"] = "AllRoles";
+}
+
+<h1>AllRoles</h1>
+<a  class="btn btn-success mb-2" asp-action="New" asp-controller="Role" > Create   Role </a>
+<table class="table table-bordered table-hover">
+<tr>
+    <th>Id</th>
+    <th>Role Name</th>
+     
+      @* <th>Actions</th>*@
+</tr>
+
+
+
+    @foreach (var role in Model)
+    {
+        <tr>
+        <td>@role.Id</td>
+        <td>@role.Name</td>
+        </tr>
+    }
+
+</table>

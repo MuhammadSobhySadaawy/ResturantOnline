@@ -1,0 +1,39 @@
+﻿
+   
+@model  List<AllAcountViewModel>
+
+
+<table class="table table-bordered table-hover">
+    
+    <tr>
+    
+    <th>Name</th>
+    <th>email</th>
+    <th>address</th>
+       <th>Name Role</th>
+    <th>For Add Role</th>
+
+    </tr>
+@foreach (var item in Model)
+{
+<tr>  
+       
+     <td>@item.UserName</td>
+    <td>@item.Email,</td>
+    <td>@item.Address</td>
+   
+        <td>@item.RoleName</td>
+    
+    
+    
+    <td>
+        <a  class="btn btn-danger" asp-controller="Role" asp-route-Email="@item.Email" asp-action="EditUserRole" >Add Role</a> 
+    </td>
+    
+</tr>
+}
+
+
+</table>
+
+

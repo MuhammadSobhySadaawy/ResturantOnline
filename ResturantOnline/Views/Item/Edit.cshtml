@@ -1,0 +1,63 @@
+﻿@model ItemCreateViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+
+    SelectList listItems = new SelectList(Model.Menus,"Id","Titel");
+
+}
+
+<div class="container">
+<h1>Edit</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Edit" asp-controller="item" asp-route-id="@Model.Id" enctype="multipart/form-data">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="Titel" class="control-label"></label>
+                <input asp-for="Titel" class="form-control" />
+                <span asp-validation-for="Titel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label asp-for="Status" class="form-check-label">Active/InActive</label>
+                <input class="form-check-input" asp-for="Status" /> 
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Image"></label>
+@*                <input  asp-for="Photo" class="form-control" />
+*@                <input  asp-for="Image" type="file" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+           </div>
+
+            <div class="form-group">
+                <label asp-for="Menu_Id" class="control-label"></label>
+                <select asp-items="listItems" asp-for="Menu_Id" class="form-control" ></select>
+                <span asp-validation-for="Menu_Id" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary my-2" />
+                <a  asp-action="Index">Back To List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

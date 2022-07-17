@@ -1,0 +1,18 @@
+﻿@model Menu
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Menu Details</h1>
+
+           <partial name="_MenuCard" model="Model" />
+
+           <div>
+               <a asp-controller="Menu" asp-action="Edit" 
+               asp-route-id="@Model.Id"
+               class="btn btn-sm btn-info rounded-0">Edit
+           </a>
+           </div>
+           
+
+<hr />

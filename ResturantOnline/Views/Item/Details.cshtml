@@ -1,0 +1,18 @@
+﻿@model Item
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Item Details</h1>
+
+           <partial name="_ItemCard" model="Model" />
+
+           <div>
+               <a asp-controller="Item" asp-action="Edit" 
+               asp-route-id="@Model.Id"
+               class="btn btn-sm btn-info rounded-0">Edit
+           </a>
+           </div>
+           
+
+<hr />
